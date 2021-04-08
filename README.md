@@ -21,6 +21,7 @@ No requirements.
 | user\_attach\_policy | map(string) of existing policies to attach | `map(string)` | `{}` | no |
 | user\_policy | policy attached to user through group | `string` | `""` | no |
 | username | username for the user | `string` | `"gcc-default-user"` | no |
+| enable\_gcci\_boundary | permission boundary toggle | bool | true | no |
 
 ## Outputs
 
