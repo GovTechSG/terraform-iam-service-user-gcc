@@ -5,7 +5,7 @@
 #
 
 locals {
-  name = "service-${var.username}"
+  name = "${var.username_prefix}-${var.username}"
 }
 
 # ref: https://www.terraform.io/docs/providers/aws/d/caller_identity.html

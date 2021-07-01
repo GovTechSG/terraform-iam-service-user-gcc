@@ -14,6 +14,12 @@ variable "username" {
   default     = "gcc-default-user"
 }
 
+variable "username_prefix" {
+  description = "prefix for username"
+  type        = string
+  default     = "service"
+}
+
 variable "user_policy" {
   description = "policy attached to user through group"
   type        = string
