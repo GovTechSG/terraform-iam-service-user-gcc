@@ -29,35 +29,3 @@ resource "aws_iam_access_key" "iam_user" {
   user    = aws_iam_user.iam_user.name
   pgp_key = var.pgp_key
 }
-
-resource "aws_iam_group" "group" {
-  name = "${local.name}-group"
-}
-
-resource "aws_iam_group_policy" "per_policy" {
-  name  = "${local.name}-policy"
-  group = aws_iam_group.group.name
-
-  policy = var.user_policy
-}
-
-resource "aws_iam_group_policy_attachment" "attachment" {
-  for_each   = var.user_attach_policy
-  group      = aws_iam_group.group.name
-  policy_arn = each.value
-}
-
-resource "aws_iam_group_membership" "group" {
-  name = "${local.name}-group-membership"
-
-  users = [
-    aws_iam_user.iam_user.name
-  ]
-
-  group = aws_iam_group.group.name
-}
-
-resource "aws_iam_access_key" "access_key" {
-  user    = aws_iam_user.iam_user.name
-  pgp_key = var.pgp_key
-}
