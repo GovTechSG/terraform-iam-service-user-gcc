@@ -21,13 +21,13 @@ variable "username_prefix" {
 }
 
 variable "user_policy" {
-  description = "policy attached to user through group"
+  description = "IAM policy attached directly to user"
   type        = string
   default     = ""
 }
 
 variable "user_attach_policy" {
-  description = "map(string) of existing policies to attach"
+  description = "map(string) of existing policies to attach directly to user"
   type        = map(string)
   default     = {}
 }

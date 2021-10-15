@@ -18,8 +18,8 @@ No requirements.
 |------|-------------|------|---------|:--------:|
 | pgp\_key | pgp key to use to encrypt the access keys - use 'gpg --export %KEY\_ID% \| base64 -w 0' to get this value | `string` | n/a | yes |
 | purpose | a reason why this user should exist | `string` | n/a | yes |
-| user\_attach\_policy | map(string) of existing policies to attach | `map(string)` | `{}` | no |
-| user\_policy | policy attached to user through group | `string` | `""` | no |
+| user\_attach\_policy | map(string) of existing policies to attach directly | `map(string)` | `{}` | no |
+| user\_policy | policy attached to user directly | `string` | `""` | no |
 | username | username for the user | `string` | `"gcc-default-user"` | no |
 | enable\_gcci\_boundary | permission boundary toggle | `bool` | `true` | no |
 

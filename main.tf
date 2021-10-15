@@ -29,3 +29,18 @@ resource "aws_iam_access_key" "iam_user" {
   user    = aws_iam_user.iam_user.name
   pgp_key = var.pgp_key
 }
+
+# ref https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_user_policy
+resource "aws_iam_user_policy" "iam_policy" {
+  count = var.user_policy == "" ? 0 : 1
+  name = "${local.name}-policy"
+  user = aws_iam_user.iam_user.name
+  policy = var.user_policy
+}
+
+# ref https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_user_policy_attachment
+resource "aws_iam_user_policy_attachment" "iam_attach_policy" {
+  user = aws_iam_user.iam_user.name
+  for_each = var.user_attach_policy
+  policy_arn = each.value
+}
