@@ -37,3 +37,9 @@ variable "enable_gcci_boundary" {
   type        = bool
   default     = true
 }
+
+variable "create_access_key" {
+  description = "Create user access key if enabled"
+  type        = bool
+  default     = true
+}

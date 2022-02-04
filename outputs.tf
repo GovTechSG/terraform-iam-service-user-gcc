@@ -15,10 +15,10 @@ output "name" {
 
 output "access_key_id" {
   description = "id of the access key"
-  value       = "${aws_iam_access_key.iam_user.id}"
+  value       = "${aws_iam_access_key.iam_user.*.id}"
 }
 
 output "access_key" {
   description = "base64-encoded, encrypted access key of the user, use `base64 -d` to decrypt and `gpg -d encrypted.txt`"
-  value       = "${aws_iam_access_key.iam_user.encrypted_secret}"
+  value       = "${aws_iam_access_key.iam_user.*.encrypted_secret}"
 }
