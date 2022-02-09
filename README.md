@@ -26,9 +26,8 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| create\_access\_key | Create user access key if enabled | `bool` | `true` | no |
 | enable\_gcci\_boundary | toggle for gcci boundary to allow non-gcc accounts to create role | `bool` | `true` | no |
-| pgp\_key | pgp key to use to encrypt the access keys - use 'gpg --export %KEY\_ID% \| base64 -w 0' to get this value | `string` | n/a | yes |
+| pgp\_key | pgp key to use to encrypt the access keys - use 'gpg --export %KEY\_ID% \| base64 -w 0' to get this value | `string` | `""` | no |
 | purpose | a reason why this user should exist | `string` | n/a | yes |
 | user\_attach\_policy | map(string) of existing policies to attach directly to user | `map(string)` | `{}` | no |
 | user\_policy | IAM policy attached directly to user | `string` | `""` | no |

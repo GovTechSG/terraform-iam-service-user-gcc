@@ -26,7 +26,7 @@ resource "aws_iam_user" "iam_user" {
 
 # ref https://www.terraform.io/docs/providers/aws/r/iam_access_key.html
 resource "aws_iam_access_key" "iam_user" {
-  count   = var.create_access_key ? 1 : 0
+  count   = var.pgp_key == "" ? 0 : 1
   user    = aws_iam_user.iam_user.name
   pgp_key = var.pgp_key
 }

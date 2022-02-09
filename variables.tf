@@ -1,6 +1,7 @@
 variable "pgp_key" {
   description = "pgp key to use to encrypt the access keys - use 'gpg --export %KEY_ID% | base64 -w 0' to get this value"
   type        = string
+  default     = ""
 }
 
 variable "purpose" {
@@ -34,12 +35,6 @@ variable "user_attach_policy" {
 
 variable "enable_gcci_boundary" {
   description = "toggle for gcci boundary to allow non-gcc accounts to create role"
-  type        = bool
-  default     = true
-}
-
-variable "create_access_key" {
-  description = "Create user access key if enabled"
   type        = bool
   default     = true
 }
